@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Preventing white background popping when overscrolled
+html {
+  background-color: #10141e;
+}
