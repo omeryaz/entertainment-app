@@ -5,7 +5,7 @@ const RegularItem: React.FC<any> = ({ index }) => {
 
   return (
     <div>
-      <img src="../assets/thumbnails/beyond-earth/regular/medium.jpg" alt="" />
+      <img src={`.${item.thumbnail.regular.small}`} alt="" />
       <p>
         {item.year} * {item.category} * {item.rating}
       </p>
