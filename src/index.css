@@ -1,12 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-// Preventing white background popping when overscrolled
-html {
-  background-color: #10141e;
-}
-
+/* Main text color */
 * {
   color: #ffffff;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  /* Preventing white background popping when overscrolled */
+  overscroll-behavior: none;
+}
+
+/* Filling the icons white when they are active, a NavLink feature */
+a.active svg {
+  fill: #ffffff;
 }

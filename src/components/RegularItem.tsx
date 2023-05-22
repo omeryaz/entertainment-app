@@ -1,15 +1,17 @@
-import data from "../data.json";
-
-const RegularItem: React.FC<any> = ({ index }) => {
-  const item = data[index];
-
+const RegularItem: React.FC<any> = ({ item }) => {
   return (
     <div>
-      <img src={`.${item.thumbnail.regular.small}`} alt="" />
-      <p>
-        {item.year} * {item.category} * {item.rating}
-      </p>
-      <p>{item.title}</p>
+      <div className="relative">
+        <img
+          className="rounded-xl"
+          src={`.${item.thumbnail.regular.medium}`}
+          alt=""
+        />
+        <p className="font-light text-sm absolute bottom-1 left-1">
+          {item.year} * {item.category} * {item.rating}
+        </p>
+      </div>
+      <p className="font-medium text-lg">{item.title}</p>
     </div>
   );
 };
