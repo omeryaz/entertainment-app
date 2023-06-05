@@ -1,4 +1,4 @@
-const svgClass: string = "fill-[#5A698F] hover:fill-red";
+const svgClass: string = "fill-[#5A698F] hover:fill-red transition-colors";
 
 export function Logo() {
   return (

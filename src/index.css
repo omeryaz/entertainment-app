@@ -14,7 +14,12 @@ body {
   overscroll-behavior: none;
 }
 
-/* Filling the icons white when they are active, a NavLink feature */
+@media (max-width: 768px) {
+  html {
+    font-size: 10px;
+  }
+}
+/* Filling the icons white when they are active im Navbar, a NavLink feature */
 a.active svg {
   fill: #ffffff;
 }
