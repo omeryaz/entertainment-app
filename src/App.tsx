@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import SearchBar from "./components/Searchbar";
+import SearchBar from "./components/SearchBar";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
 import Series from "./pages/Series";
