@@ -8,7 +8,7 @@ const RegularItem: React.FC<any> = ({ item, category, isBookmarked }) => {
         {/* Image */}
         <img
           className="rounded-xl group-hover:opacity-60 "
-          src={`.${item.thumbnail.regular.medium}`}
+          src={item.thumbnail.regular.medium}
           alt=""
         />
 
