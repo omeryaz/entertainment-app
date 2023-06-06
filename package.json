@@ -1,14 +1,12 @@
 {
-  "homepage": "https://omeryaz.github.io/entertainment-app/" ,
+  "homepage": "https://omeryaz.github.io/entertainment-app/",
   "name": "entertainment-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build --base=./",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
