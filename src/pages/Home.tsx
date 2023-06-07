@@ -2,7 +2,7 @@ import RegularItem from "../components/RegularItem";
 import TrendingItem from "../components/TrendingItem";
 import data from "../data.json";
 import { useGeneral } from "../Context";
-import { ReactNode } from "react";
+
 function Home() {
   const { filterText, bookmarkItems, categories } = useGeneral();
 
@@ -14,12 +14,13 @@ function Home() {
 
   let itemToRender = filterText ? filteredItems : regularItems;
 
+  // Rendering Trending Items
   const renderTrending = () => {
     return (
       <div className="h-[295px]">
         <h2 className="font-light text-3xl mb-5">Trending</h2>
         <div className="grid gap-5 grid-flow-col auto-cols-[400px] overflow-x-auto max-w-screen-xl">
-          {trendingItems.map((item): ReactNode => {
+          {trendingItems.map((item) => {
             return (
               <TrendingItem
                 key={item.title}
@@ -36,6 +37,7 @@ function Home() {
     );
   };
 
+  // Rendering Regular Items
   const renderItems = () => {
     return (
       <div className="mr-10">
@@ -45,7 +47,7 @@ function Home() {
             : "Recommended for you"}
         </h2>
         <div className="grid grid-cols-4 gap-4">
-          {itemToRender.map((item): ReactNode => {
+          {itemToRender.map((item) => {
             return (
               <RegularItem
                 key={item.title}
