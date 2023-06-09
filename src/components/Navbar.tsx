@@ -16,8 +16,8 @@ function Navbar() {
     ["/bookmark", BookmarkIcon],
   ];
   return (
-    <nav className="basis-1/12 min-w-[75px] h-[80vh] bg-semidarkblue items-center my-7 mx-7 rounded-[1rem] max-h-[960px]">
-      <ul className="flex flex-row md:flex-col md:h-3/6 justify-around items-center">
+    <nav className="basis-1/12 min-w-[75px] h-[80vh] max-h-[960px] bg-semidarkblue items-center my-5 mx-5 rounded-[1rem] ">
+      <ul className="flex flex-row lg:flex-col lg:h-3/6 justify-around items-center">
         <li className="md:mt-5">
           <Logo></Logo>
         </li>

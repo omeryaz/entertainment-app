@@ -10,7 +10,7 @@ function SearchBar() {
   };
 
   return (
-    <div className="flex align-items mt-7 mb-4">
+    <div className="flex align-items mt-2 md:mt-7 mb-4 ml-4">
       {/* Search Icon */}
       <span onClick={focusInput}>
         <svg

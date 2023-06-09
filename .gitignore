@@ -33,3 +33,6 @@ dist-ssr
 
 # Avoid your project being littered with annoying .DS_Store files!
 .prettierignore
+
+# Ignore local design files 
+entertainment-web-app

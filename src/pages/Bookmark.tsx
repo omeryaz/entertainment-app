@@ -1,9 +1,9 @@
-import RegularItem from "../components/RegularItem";
 import data from "../data.json";
 import { useGeneral } from "../Context";
+import RegularItemContainer from "../components/RegularItemContainer";
 
 function Bookmark() {
-  const { filterText, categories, bookmarkItems } = useGeneral();
+  const { filterText, bookmarkItems } = useGeneral();
 
   // Array of filtered and bookmarked Movies
   let bookmarkedMovies = data
@@ -22,38 +22,27 @@ function Bookmark() {
     .filter((item) => bookmarkItems[item.title]);
 
   return (
-    <div className="mr-10">
-      <h2 className="font-light text-3xl mb-5">Bookmarked Movies</h2>
-      <div className="grid grid-cols-4 gap-4">
-        {bookmarkedMovies.map((item) => {
-          return (
-            <RegularItem
-              key={item.title}
-              item={item}
-              isBookmarked={bookmarkItems[item.title]}
-              category={
-                categories[item.category.toLowerCase().split(" ").join("")]
-              }
-            ></RegularItem>
-          );
-        })}
-      </div>
-      <h2 className="font-light text-3xl mb-5">Bookmarked TV Series</h2>
-      <div className="grid grid-cols-4 gap-4">
-        {bookmarkedSeries.map((item) => {
-          return (
-            <RegularItem
-              key={item.title}
-              item={item}
-              isBookmarked={bookmarkItems[item.title]}
-              category={
-                categories[item.category.toLowerCase().split(" ").join("")]
-              }
-            ></RegularItem>
-          );
-        })}
-      </div>
-    </div>
+    <>
+      {/* Rendering of bookmarked TV Series and Movies */}
+      {!filterText && (
+        <RegularItemContainer
+          itemsToRender={bookmarkedMovies}
+          sectionHeader="Bookmarked Movies"
+        ></RegularItemContainer>
+      )}
+      {!filterText && (
+        <RegularItemContainer
+          itemsToRender={bookmarkedSeries}
+          sectionHeader="Bookmarked TV Series"
+        ></RegularItemContainer>
+      )}
+
+      {/* Displaying the bookmarked content together when filtering */}
+      <RegularItemContainer
+        itemsToRender={[...bookmarkedMovies, ...bookmarkedSeries]}
+        sectionHeader=""
+      ></RegularItemContainer>
+    </>
   );
 }
 
