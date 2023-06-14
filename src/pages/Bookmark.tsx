@@ -38,10 +38,12 @@ function Bookmark() {
       )}
 
       {/* Displaying the bookmarked content together when filtering */}
-      <RegularItemContainer
-        itemsToRender={[...bookmarkedMovies, ...bookmarkedSeries]}
-        sectionHeader=""
-      ></RegularItemContainer>
+      {filterText && (
+        <RegularItemContainer
+          itemsToRender={[...bookmarkedMovies, ...bookmarkedSeries]}
+          sectionHeader=""
+        ></RegularItemContainer>
+      )}
     </>
   );
 }
