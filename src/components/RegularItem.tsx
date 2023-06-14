@@ -18,12 +18,15 @@ const RegularItem: React.FC<any> = ({ item, category, isBookmarked }) => {
         {/* Play Button */}
         <PlayButton />
       </div>
+
       {/* Item description */}
       <p className="font-light text-sm opacity-75 flex mt-2">
         {item.year} &#x2022;{" "}
         <span className="flex items-center mx-1">{category}</span>{" "}
         {item.category} &#x2022; {item.rating}
       </p>
+
+      {/* Title */}
       <p className="font-medium text-lg mb">{item.title}</p>
     </div>
   );

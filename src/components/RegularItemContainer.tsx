@@ -33,7 +33,8 @@ function RegularItemContainer({
   const { filterText, bookmarkItems, categories } = useGeneral();
   return (
     <div>
-      <div className="mr-5 md:mr-10">
+      <div className="mr-5 lg:mr-10">
+        {/* Section Heading */}
         <h2 className="font-light text-3xl mb-5">
           {filterText
             ? `Found ${
@@ -41,7 +42,9 @@ function RegularItemContainer({
               } for "${filterText}"`
             : `${sectionHeader}`}
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+        {/* Section Body */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4">
           {itemsToRender.map((item) => {
             return (
               <RegularItem

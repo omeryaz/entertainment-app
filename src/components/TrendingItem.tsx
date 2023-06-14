@@ -23,6 +23,8 @@ const TrendingItem: React.FC<any> = ({ item, category, isBookmarked }) => {
         <span className="flex items-center mx-1">{category}</span>{" "}
         {item.category} &#x2022; {item.rating}
       </p>
+
+      {/* Title */}
       <p className="absolute bottom-5 left-5 font-medium text-xl">
         {item.title}
       </p>

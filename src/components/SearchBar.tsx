@@ -2,6 +2,8 @@ import { useGeneral } from "../Context";
 import { useRef } from "react";
 function SearchBar() {
   const { filterText, setFilterText } = useGeneral();
+
+  // Focusing on the search input when the search icon is clicked
   const searchInputRef = useRef<HTMLInputElement>(null);
   const focusInput = () => {
     if (searchInputRef.current) {
@@ -26,10 +28,10 @@ function SearchBar() {
         </svg>
       </span>
 
-      {/* Input SearchBar*/}
+      {/* Search Input */}
       <input
         ref={searchInputRef}
-        className="bg-darkblue font-light placeholder:font-light placeholder:opacity-75 w-11/12 outline-none border-b-2 border-greyishblue border-none focus:border-solid  transition-[border]"
+        className="bg-darkblue font-light text-3xl xl:text-base placeholder:font-light placeholder:opacity-75 w-11/12 outline-none border-none focus:border-solid border-b-2 border-greyishblue transition-[border]"
         placeholder="Search for movies or TV Series"
         type="text"
         value={filterText}

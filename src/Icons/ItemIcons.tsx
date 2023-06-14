@@ -40,7 +40,7 @@ export function ItemSeriesIcon() {
 // * BOOKMARK ICONS
 
 const bookmarkIconClass =
-  "absolute top-5 right-5 bg-[#000000]/60 hover:bg-[#000000]/25 w-8 h-8 rounded-full flex justify-center items-center";
+  "absolute top-5 right-5 bg-[#000000]/60 hover:bg-[#000000]/25 w-12 h-12 md:w-8 md:h-8 rounded-full flex justify-center items-center";
 
 type ItemBookmarkIconProps = {
   title: string;

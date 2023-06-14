@@ -9,6 +9,7 @@ import {
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
+  // Page routes and their icons
   const links: [string, React.ComponentType][] = [
     ["/", HomeIcon],
     ["/movies", MoviesIcon],
@@ -16,18 +17,32 @@ function Navbar() {
     ["/bookmark", BookmarkIcon],
   ];
   return (
-    <nav className="basis-1/12 min-w-[75px] h-[80vh] max-h-[960px] bg-semidarkblue items-center my-5 mx-5 rounded-[1rem] ">
-      <ul className="flex flex-row lg:flex-col lg:h-3/6 justify-around items-center">
-        <li className="md:mt-5">
+    <nav className="flex basis-20 h-[80vh] max-h-[960px] bg-semidarkblue items-center md:my-5 md:mx-5 md:rounded-[1rem] px-5 xl:py-7">
+      <ul className=" flex h-full w-full xl:flex-col items-center">
+        {/* Logo */}
+        <li>
           <Logo></Logo>
         </li>
-        {links.map(([url, IconComponent]) => (
-          <li className="hover:cursor-pointer" key={url}>
-            <NavLink to={url}>
-              <IconComponent />
-            </NavLink>
-          </li>
-        ))}
+
+        {/* Pages */}
+        <li className="ml-auto">
+          <ul className="flex xl:flex-col xl:mt-10">
+            {links.map(([url, IconComponent]) => (
+              <li className="hover:cursor-pointer px-5 xl:py-4" key={url}>
+                <NavLink to={url}>
+                  <IconComponent />
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </li>
+
+        {/* Profile */}
+        <li className="ml-auto xl:ml-0 xl:mt-auto">
+          <div className="w-10 h-10 rounded-full ring-1 ring-white/60">
+            <img src="./assets/image-avatar.png" alt="avatar" />
+          </div>
+        </li>
       </ul>
     </nav>
   );
