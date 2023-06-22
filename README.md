@@ -47,3 +47,5 @@ A streaming platform clone where you can navigate between different pages (Home,
 ## Live Site
 
 [Live Site URL](https://omeryaz.github.io/entertainment-app/)
+
+Disclaimer: Refreshing a page other than the homepage will throw a 404 since Github Pages does not support one-page apps.
