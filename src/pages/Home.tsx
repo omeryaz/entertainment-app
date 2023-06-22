@@ -1,7 +1,9 @@
+import { motion } from "framer-motion";
+import { useGeneral } from "../Context";
+import { trendingContainerVariants } from "../animations";
+import RegularItemContainer from "../components/RegularItemContainer";
 import TrendingItem from "../components/TrendingItem";
 import data from "../data.json";
-import { useGeneral } from "../Context";
-import RegularItemContainer from "../components/RegularItemContainer";
 
 function Home() {
   const { filterText, bookmarkItems, categories } = useGeneral();
@@ -12,18 +14,17 @@ function Home() {
     .filter((item) =>
       item.title.toLowerCase().includes(filterText.toLowerCase())
     );
-  // let filteredItems = data.filter((item) =>
-  //   item.title.toLowerCase().includes(filterText.toLowerCase())
-  // );
 
-  // let itemsToRender = filterText ? filteredItems : regularItems;
-
-  // Rendering Trending Items
   const renderTrending = () => {
     return (
-      <div className="h-72">
+      <div className="h-72 mt-8">
         <h2 className="font-light text-3xl mb-5">Trending</h2>
-        <div className="grid gap-5 grid-flow-col auto-cols-[24rem] md:auto-cols-[26rem] overflow-x-auto max-w-screen-xl">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={trendingContainerVariants}
+          className="grid gap-5 grid-flow-col auto-cols-[24rem] md:auto-cols-[26rem] overflow-x-auto max-w-screen-xl"
+        >
           {trendingItems.map((item) => {
             return (
               <TrendingItem
@@ -36,12 +37,12 @@ function Home() {
               ></TrendingItem>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     );
   };
   return (
-    <div>
+    <>
       <section>{!filterText && renderTrending()}</section>
       <section>
         <RegularItemContainer
@@ -49,7 +50,7 @@ function Home() {
           sectionHeader="Recommended for you"
         />
       </section>
-    </div>
+    </>
   );
 }
 

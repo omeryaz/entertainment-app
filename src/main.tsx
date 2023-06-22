@@ -8,7 +8,7 @@ import { GeneralProvider } from "./Context.tsx";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <GeneralProvider>
-      <BrowserRouter basename="/entertainment-app">
+      <BrowserRouter basename="/entertainment-app/">
         <App />
       </BrowserRouter>
     </GeneralProvider>

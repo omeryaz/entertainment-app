@@ -1,53 +1,42 @@
 import RegularItem from "./RegularItem";
+import { useRef } from "react";
 import { useGeneral } from "../Context";
-
-type Item = {
-  title: string;
-  thumbnail: {
-    trending?: {
-      small: string;
-      large: string;
-    };
-    regular: {
-      small: string;
-      medium: string;
-      large: string;
-    };
-  };
-  year: number;
-  category: string;
-  rating: string;
-  isBookmarked: boolean;
-  isTrending: boolean;
-};
-
-type RegularItemContainerProps = {
-  itemsToRender: Item[];
-  sectionHeader: string;
-};
+import { motion, AnimatePresence } from "framer-motion";
+import { containerVariants } from "../animations";
+import { RegularItemContainerProps } from "../types";
 
 function RegularItemContainer({
   itemsToRender,
   sectionHeader,
 }: RegularItemContainerProps) {
+  // Ref for RegularItem forwardRef
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
   const { filterText, bookmarkItems, categories } = useGeneral();
   return (
-    <div>
-      <div className="mr-5 lg:mr-10">
-        {/* Section Heading */}
-        <h2 className="font-light text-3xl mb-5">
-          {filterText
-            ? `Found ${
-                itemsToRender.length !== 0 ? itemsToRender.length : "no match"
-              } for "${filterText}"`
-            : `${sectionHeader}`}
-        </h2>
+    <div className="mr-5 lg:mr-5 mt-8">
+      {/* Section Heading */}
+      <h2 className="font-light text-3xl mb-5">
+        {filterText
+          ? `Found ${
+              itemsToRender.length !== 0 ? itemsToRender.length : "no match"
+            } for "${filterText}"`
+          : `${sectionHeader}`}
+      </h2>
 
-        {/* Section Body */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4">
+      {/* Section Body */}
+
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4"
+      >
+        <AnimatePresence mode="popLayout">
           {itemsToRender.map((item) => {
             return (
               <RegularItem
+                ref={containerRef}
                 key={item.title}
                 item={item}
                 isBookmarked={bookmarkItems[item.title]}
@@ -57,8 +46,8 @@ function RegularItemContainer({
               ></RegularItem>
             );
           })}
-        </div>
-      </div>
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }

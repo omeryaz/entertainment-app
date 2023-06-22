@@ -1,13 +1,22 @@
 import React from "react";
 import PlayButton from "./PlayButton";
 import { ItemBookmarkIcon } from "../Icons/ItemIcons";
-const TrendingItem: React.FC<any> = ({ item, category, isBookmarked }) => {
+import { motion } from "framer-motion";
+import { trendingVariants } from "../animations";
+import { RegularItemProps } from "../types";
+
+const TrendingItem: React.FC<RegularItemProps> = ({
+  item,
+  category,
+  isBookmarked,
+}) => {
+  const thumbnailSrc = item.thumbnail?.trending?.large ?? "";
   return (
-    <div className="relative group">
+    <motion.div variants={trendingVariants} className="relative group">
       {/* Image */}
       <img
         className="rounded-xl group-hover:opacity-60"
-        src={item.thumbnail.trending.large}
+        src={thumbnailSrc}
         alt=""
       />
 
@@ -28,7 +37,7 @@ const TrendingItem: React.FC<any> = ({ item, category, isBookmarked }) => {
       <p className="absolute bottom-5 left-5 font-medium text-xl">
         {item.title}
       </p>
-    </div>
+    </motion.div>
   );
 };
 
