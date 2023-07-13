@@ -24,23 +24,17 @@ A streaming platform clone where you can navigate between different pages (Home,
 
 ## Desktop
 
-<br>
-
 <img src="./screenshots/entertainment-app_Desktop.jpg" alt="Desktop" height="500" >
 
 <br>
 
 ## Tablet
 
-<br>
-
 <img src="./screenshots/entertainment-app_Tablet.jpg" alt="Tablet" height="450" >
 
 <br>
 
 ## Mobile
-
-<br>
 
 <img src="./screenshots/entertainment-app_Mobile.jpg" alt="Mobile" height="700">
 
